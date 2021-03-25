@@ -23,6 +23,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SERVER_URL", '"https://api.themoviedb.org/3/"'
+
+        }
+        debug {
+            def proguard = false
+            minifyEnabled proguard
+            shrinkResources proguard
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "SERVER_URL", '"https://api.themoviedb.org/3/"'
+
         }
     }
     compileOptions {
