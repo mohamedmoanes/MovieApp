@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.moanes.myapplication.movieapp.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/detailsFragment"
+        android:name="com.moanes.myapplication.movieapp.ui.details.DetailsDialogFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/dialog_fragment_details" >
+        <argument
+            android:name="movie"
+            app:argType="com.moanes.myapplication.movieapp.data.models.Movie" />
+    </dialog>
 </navigation>
