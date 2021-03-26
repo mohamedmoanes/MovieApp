@@ -21,13 +21,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "SERVER_URL", '"https://api.themoviedb.org/3/"'
 
         }
         debug {
-            def proguard = false
+            def proguard = true
             minifyEnabled proguard
             shrinkResources proguard
 
