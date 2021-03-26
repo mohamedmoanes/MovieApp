@@ -1,8 +1,10 @@
 package com.moanes.myapplication.movieapp.data.models
 
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Movie(
     @SerializedName("adult")
     var adult: Boolean,
@@ -32,4 +34,4 @@ data class Movie(
     var voteAverage: Double,
     @SerializedName("vote_count")
     var voteCount: Int
-)
+): Parcelable

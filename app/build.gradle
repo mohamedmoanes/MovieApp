@@ -56,7 +56,6 @@ dependencies {configuration ->
     retrofit(configuration)
     coroutines(configuration)
     koin(configuration)
-    progressBar(configuration)
     imageLoader(configuration)
 
     testImplementation 'junit:junit:4.+'
@@ -115,8 +114,4 @@ private static void koin(configuration) {
 
 private static void imageLoader(configuration) {
     configuration.implementation 'com.squareup.picasso:picasso:2.71828'
-}
-
-private static void progressBar(configuration) {
-    configuration.implementation 'com.wang.avi:library:2.1.3'
 }

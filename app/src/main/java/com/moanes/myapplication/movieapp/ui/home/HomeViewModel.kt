@@ -68,4 +68,10 @@ class HomeViewModel(private val moviesRepo: MoviesRepo) : ViewModel(), Coroutine
             getMovies()
         }
     }
+
+    fun refresh() {
+        mCurrentPage = 1
+        moviesLiveData.value?.clear()
+        getMovies()
+    }
 }
