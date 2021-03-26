@@ -3,6 +3,7 @@ package com.moanes.myapplication.movieapp.module
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.moanes.myapplication.movieapp.BuildConfig
 import com.moanes.myapplication.movieapp.data.network.Remote
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -39,10 +40,25 @@ fun createHttpClient(): OkHttpClient {
     val loggingInterceptor = HttpLoggingInterceptor()
     loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
+            .addInterceptor(requestInterceptor)
             .readTimeout(50, TimeUnit.SECONDS)
             .writeTimeout(50, TimeUnit.SECONDS)
             .connectTimeout(50, TimeUnit.SECONDS)
             .addNetworkInterceptor(StethoInterceptor())
             .addInterceptor(loggingInterceptor)
             .build()
+}
+
+private val requestInterceptor: Interceptor = Interceptor { chain ->
+    val apiKey = "15e055caa208cab4ce3a30c8d5ac4a1a"
+    var request = chain.request()
+    val requestUrl = request.url
+
+    val url = requestUrl.newBuilder().addQueryParameter("api_key", apiKey).build()
+
+    request = request.newBuilder()
+            .url(url)
+            .build()
+
+    chain.proceed(request)
 }

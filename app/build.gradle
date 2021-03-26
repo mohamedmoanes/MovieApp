@@ -48,8 +48,10 @@ android {
 
 dependencies {configuration ->
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     androidX(configuration)
+    navigation(configuration)
     lifecycle(configuration)
     retrofit(configuration)
     coroutines(configuration)
@@ -72,6 +74,13 @@ private static void androidX(configuration) {
     configuration.implementation 'androidx.appcompat:appcompat:1.2.0'
     configuration.implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     configuration.implementation "com.google.android.material:material:1.3.0"
+}
+private static void navigation(configuration) {
+    def nav_version = "2.3.3"
+
+    configuration.implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    configuration.implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    configuration.implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 }
 private static void lifecycle(configuration) {
     def lifecycle_version = "2.3.0"
