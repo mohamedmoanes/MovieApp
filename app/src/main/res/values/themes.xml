@@ -23,4 +23,9 @@
         <item name="android:windowEnterAnimation">@anim/fade_in</item>
         <item name="android:windowExitAnimation">@anim/fade_out</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.TopCorners10" parent="">
+        <item name="cornerSizeTopLeft">10%</item>
+        <item name="cornerSizeTopRight">10%</item>
+    </style>
 </resources>
