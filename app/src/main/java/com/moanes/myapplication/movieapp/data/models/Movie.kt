@@ -7,31 +7,31 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Movie(
     @SerializedName("adult")
-    var adult: Boolean,
+    var adult: Boolean=false,
     @SerializedName("backdrop_path")
-    var backdropPath: String,
+    var backdropPath: String="",
     @SerializedName("genre_ids")
-    var genreIds: List<Int>,
+    var genreIds: List<Int>?=null,
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("original_language")
-    var originalLanguage: String,
+    var originalLanguage: String="",
     @SerializedName("original_title")
-    var originalTitle: String,
+    var originalTitle: String="",
     @SerializedName("overview")
-    var overview: String,
+    var overview: String="",
     @SerializedName("popularity")
-    var popularity: Double,
+    var popularity: Double= Double.NaN,
     @SerializedName("poster_path")
-    var posterPath: String,
+    var posterPath: String="",
     @SerializedName("release_date")
-    var releaseDate: String,
+    var releaseDate: String="",
     @SerializedName("title")
-    var title: String,
+    var title: String="",
     @SerializedName("video")
-    var video: Boolean,
+    var video: Boolean=false,
     @SerializedName("vote_average")
-    var voteAverage: Double,
+    var voteAverage: Double= Double.NaN,
     @SerializedName("vote_count")
-    var voteCount: Int
+    var voteCount: Int=0
 ): Parcelable
